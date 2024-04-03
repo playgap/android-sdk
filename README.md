@@ -1,5 +1,7 @@
 # Playgap Android SDK
 
+[![Maven Central](https://img.shields.io/maven-central/v/io.playgap/playgap-sdk.svg)](https://central.sonatype.com/artifact/io.playgap/playgap-sdk)
+
 The Playgap SDK enables mobile app developers to monetize offline and online gameplay via advertisements.
 
 ### Supported Platforms
@@ -58,7 +60,7 @@ dependencies {
 }
 ```
 
-You can get the `latestVersion` for Playgap SDK dependency on [Maven Central](https://central.sonatype.com/artifact/io.playgap/playgap-sdk).  
+Playgap SDK `latestVersion`: [![Maven Central](https://img.shields.io/maven-central/v/io.playgap/playgap-sdk.svg)](https://central.sonatype.com/artifact/io.playgap/playgap-sdk)  
 You can get the `latestVersion` for Android Advertising ID (AAID) dependency on [Google Maven](https://maven.google.com/web/index.html#com.google.android.gms:play-services-ads-identifier).
 
 ### Android Manifest
@@ -335,10 +337,15 @@ class YourApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
-        PlaygapAds.networkObserver(context = this) { isConnected ->
-            isUserConnected = isConnected
-            Log.i("Is connected to network ${isConnected}")
-        }
+        PlaygapAds.networkObserver(
+            context = this,
+            observer = object: NetworkObserver {
+                override fun onNetworkChange(isConnected: Boolean) {
+                    isUserConnected = isConnected
+                    Log.i("Is connected to network ${isConnected}")
+                }
+            }
+        )
     }
 }
 ```
