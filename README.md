@@ -146,7 +146,7 @@ Ads which are able to display the Appsheet while the user is connected will have
 
 The Initialize API prepares the SDK for use during a user session. To use the it effectively:
 1. Call Initialize immediately once the application launches with the correct API Key:
-- Use `PlaygapTestID123` for testing to always receive test ads
+- Use `tj8SxMjJ9Mlya5Nn` for testing to always receive test ads
 - Obtain your own API Key [steps to go live](#go-live) with your application
 2. Await for Initialization Complete to use the other SDK APIs
 3. Avoid calling Initialize multiple times (such as in the Unity Update Loop)
