@@ -47,7 +47,6 @@ dependencyResolutionManagement {
 
 ### Add AAR to Gradle
 To add the AAR dependency to your project, import the latest version of the Playgap SDK AAR to your `build.gradle`.  
-You're also encouraged to add the Android Advertising ID (AAID) dependency.
 
 If you're using Kotlin DSL `kts`:
 ```kotlin
@@ -56,12 +55,10 @@ android {
 }
 dependencies {
     implementation ("io.playgap:playgap-sdk:latestVersion")
-    implementation ("com.google.android.gms:play-services-ads-identifier:latestVersion")
 }
 ```
 
-Playgap SDK `latestVersion`: [![Maven Central](https://img.shields.io/maven-central/v/io.playgap/playgap-sdk.svg)](https://central.sonatype.com/artifact/io.playgap/playgap-sdk)  
-You can get the `latestVersion` for Android Advertising ID (AAID) dependency on [Google Maven](https://maven.google.com/web/index.html#com.google.android.gms:play-services-ads-identifier).
+Playgap SDK `latestVersion`: [![Maven Central](https://img.shields.io/maven-central/v/io.playgap/playgap-sdk.svg)](https://central.sonatype.com/artifact/io.playgap/playgap-sdk)
 
 ### Android Manifest
 
@@ -245,11 +242,11 @@ PlaygapAds.show(
           Log.i("Show playback event - $event")
         }
       
-        override fun onShowCompleted(reward: Reward) {
+        override fun onShowCompleted(reward: PlaygapReward) {
           Log.i("The video ad was closed")
         }
       
-        override fun onUserClaimedReward(reward: Reward) {
+        override fun onUserClaimedReward(reward: PlaygapReward) {
           Log.i("User claimed reward")
         }
     }
@@ -310,7 +307,7 @@ PlaygapAds.claimRewards(
             Log.i("Google Play store app sheet clicked")
         }
     
-        override fun onUserClaimedReward(reward: Reward) {
+        override fun onUserClaimedReward(reward: PlaygapReward) {
             Log.i("User claimed reward")
         }
     }
