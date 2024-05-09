@@ -223,7 +223,7 @@ The Show API prepares a fullscreen ad to be shown during the user session. To us
 val ad = loadedAd ?: return
 
 PlaygapAds.show(
-    context = context,
+    activity = activity,
     ad = ad, 
     listener = object : ShowListener {
         override fun onShowFailed(error: ShowError) {
@@ -289,7 +289,7 @@ The ClaimRewards API is used to present a Dialog to the user which allows them t
 
 ```kotlin
 PlaygapAds.claimRewards(
-    context = activity,
+    activity = activity,
     listener = object : ClaimRewardsListener {
         override fun onRewardScreenShown() {
             Log.i("Claim reward screen shown")
